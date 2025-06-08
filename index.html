@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>how'dthatlook - AI Visualization App</title>
+    <meta name="description" content="Visualize different hairstyles, clothes, furniture arrangements and more with our AI-powered app">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: "hsl(var(--primary))",
+                        muted: "hsl(var(--muted))",
+                        'muted-foreground': "hsl(var(--muted-foreground))",
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- CSS Variables for theme -->
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --border: 214.3 31.8% 91.4%;
+            --primary: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+        }
+        
+        .dark {
+            --background: 222.2 84% 4.9%;
+            --foreground: 210 40% 98%;
+            --border: 217.2 32.6% 17.5%;
+            --primary: 210 40% 98%;
+            --muted: 217.2 32.6% 17.5%;
+            --muted-foreground: 215 20.2% 65.1%;
+        }
+        
+        body {
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+        }
+        
+        /* Custom styles for better appearance */
+        .card {
+            background-color: hsl(var(--background));
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+        
+        .btn-primary {
+            background-color: hsl(var(--primary));
+            color: hsl(var(--background));
+            border: 1px solid hsl(var(--primary));
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: hsl(var(--primary));
+            border: 1px solid hsl(var(--border));
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn-outline:hover {
+            background-color: hsl(var(--muted));
+        }
+        
+        .input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.375rem;
+            background-color: transparent;
+            color: hsl(var(--foreground));
+        }
+        
+        .input:focus {
+            outline: none;
+            border-color: hsl(var(--primary));
+            box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+        }
+        
+        .textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            width: 1rem;
+            height: 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
+        <div class="container mx-auto flex h-14 items-center px-4 md:px-6">
+            <div class="mr-4 hidden md:flex">
+                <a class="mr-6 flex items-center space-x-2" href="#top">
+                    <span class="hidden font-bold sm:inline-block">how'dthatlook</span>
+                </a>
+                <nav class="flex items-center space-x-6 text-sm font-medium">
+                    <a href="#about" class="transition-colors hover:text-foreground/80">About</a>
+                    <a href="#features" class="transition-colors hover:text-foreground/80">Features</a>
+                    <a href="#contact" class="transition-colors hover:text-foreground/80">Contact</a>
+                </nav>
+            </div>
+            <button class="btn-outline ml-auto">Try Now</button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6">
+        <!-- Hero Section -->
+        <section id="about" class="py-12 md:py-24 lg:py-32">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div class="space-y-2">
+                        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                            how'dthatlook
+                        </h1>
+                        <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                            Visualize your world differently. Try new hairstyles, clothes, furniture arrangements, and more with
+                            our AI-powered visualization tool.
+                        </p>
+                    </div>
+                    <div class="space-x-4 flex">
+                        <a href="https://instagram.com" target="_blank" class="btn-outline inline-flex items-center justify-center w-10 h-10">
+                            <i data-lucide="instagram" class="h-4 w-4"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="btn-outline inline-flex items-center justify-center w-10 h-10">
+                            <i data-lucide="twitter" class="h-4 w-4"></i>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                        <a href="mailto:contact@howdthatlook.com" class="btn-outline inline-flex items-center justify-center w-10 h-10">
+                            <i data-lucide="mail" class="h-4 w-4"></i>
+                            <span class="sr-only">Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-12 md:py-24 lg:py-32">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Features</h2>
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Feature Card 1 -->
+                    <div class="card overflow-hidden">
+                        <div class="relative aspect-video bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">Virtual Hairstyles</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-xl mb-2">Virtual Hairstyles</h3>
+                            <p class="text-sm text-muted-foreground mb-4">Try different hairstyles and colors without the commitment. See how you'd look with a new cut or color in seconds.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Hairstyles</span>
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Colors</span>
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Realistic</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="card overflow-hidden">
+                        <div class="relative aspect-video bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">Virtual Wardrobe</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-xl mb-2">Virtual Wardrobe</h3>
+                            <p class="text-sm text-muted-foreground mb-4">Try on clothes without changing. See how different outfits would look on you before making a purchase.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Fashion</span>
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Shopping</span>
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Styling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="card overflow-hidden">
+                        <div class="relative aspect-video bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">Room Designer</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-xl mb-2">Room Designer</h3>
+                            <p class="text-sm text-muted-foreground mb-4">Visualize furniture and decor in your space before buying. Arrange and rearrange to find the perfect setup.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Interior Design</span>
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Furniture</span>
+                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Decor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="py-12 md:py-24 lg:py-32">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">
+                    Our Technology
+                </h2>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <!-- Tech Card 1 -->
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold mb-4">AI & Machine Learning</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Computer Vision</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Image Generation</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Neural Networks</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Deep Learning</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Image Processing</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">3D Modeling</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 2 -->
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold mb-4">User Experience</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Real-time Rendering</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">AR/VR Integration</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Mobile Optimization</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Intuitive Interface</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Fast Processing</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 3 -->
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold mb-4">Security & Privacy</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Data Encryption</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Privacy Controls</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Secure Cloud Storage</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">GDPR Compliance</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">User Consent</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 4 -->
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold mb-4">Platforms</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">iOS</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Android</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Web</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Desktop</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">AR Glasses</span>
+                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Smart Mirrors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 md:py-24 lg:py-32">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="mx-auto max-w-2xl">
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">
+                        Get in Touch
+                    </h2>
+                    <div class="card p-6">
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                                <input type="text" id="name" name="name" required class="input">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" required class="input">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" required class="input textarea"></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn" class="btn-primary w-full flex items-center justify-center gap-2">
+                                <span id="submitText">Send Message</span>
+                                <div id="spinner" class="spinner hidden"></div>
+                            </button>
+                            <p id="formMessage" class="text-sm text-center mt-4 text-muted-foreground hidden"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t">
+        <div class="container mx-auto flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6">
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+                © 2024 how'dthatlook. Developed by 
+                <a href="https://www.milivon.com" target="_blank" class="underline hover:text-primary">MILIVON</a>. 
+                All rights reserved.
+            </p>
+            <nav class="sm:ml-auto flex gap-4 sm:gap-6">
+                <a class="text-xs hover:underline underline-offset-4" href="#">Terms of Service</a>
+                <a class="text-xs hover:underline underline-offset-4" href="#">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const spinner = document.getElementById('spinner');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            spinner.classList.remove('hidden');
+            formMessage.classList.add('hidden');
+            
+            // Get form data
+            const formData = new FormData(e.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+            
+            try {
+                // Simulate form processing delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // For a real implementation, you would send the data to a service like:
+                // - Formspree: https://formspree.io/
+                // - EmailJS: https://www.emailjs.com/
+                // - Netlify Forms: https://docs.netlify.com/forms/setup/
+                
+                console.log('Form submission:', data);
+                
+                // Show success message
+                formMessage.textContent = "Thanks for your message! We'll get back to you soon.";
+                formMessage.classList.remove('hidden');
+                formMessage.className = formMessage.className.replace('text-red-500', 'text-green-500');
+                
+                // Reset form
+                e.target.reset();
+                
+            } catch (error) {
+                // Show error message
+                formMessage.textContent = "Something went wrong. Please try again.";
+                formMessage.classList.remove('hidden');
+                formMessage.className = formMessage.className.replace('text-green-500', 'text-red-500');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+                spinner.classList.add('hidden');
+            }
+        });
+
+        // Dark mode toggle (optional)
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Load saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html> 
