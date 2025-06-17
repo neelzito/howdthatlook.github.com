@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - how'dthatlook</title>
+    <meta name="description" content="Privacy Policy for how'dthatlook AI visualization app">
+    
+    <!-- Almarai Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Configure Tailwind with MILIVON tokens -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'almarai': ['Almarai', 'sans-serif'],
+                    },
+                    colors: {
+                        'neutral-0': '#FFFFFF',
+                        'neutral-5': '#F5F5F5',
+                        'neutral-70': '#5F5F5F',
+                        'neutral-80': '#CCCCCC',
+                        'neutral-85': '#E6E6E6',
+                        'neutral-90': '#121212',
+                        'teal-light': '#00C2B8',
+                        'teal-dark': '#004B46',
+                        'orange-primary': '#FF8A00',
+                        'orange-light': '#FFB24D',
+                        'orange-selected': 'rgba(255,138,0,0.12)',
+                        'red-error': '#E02020',
+                    },
+                    spacing: {
+                        'xs': '4px',
+                        's': '8px',
+                        'm': '16px',
+                        'l': '24px',
+                        'xl': '32px',
+                        'xxl': '40px',
+                    },
+                    fontSize: {
+                        'display': ['32px', { lineHeight: '120%', letterSpacing: '-0.5px', fontWeight: '700' }],
+                        'heading': ['24px', { lineHeight: '120%', letterSpacing: '-0.4px', fontWeight: '700' }],
+                        'subtitle': ['20px', { lineHeight: '130%', letterSpacing: '-0.3px', fontWeight: '600' }],
+                        'body': ['16px', { lineHeight: '140%', letterSpacing: '0px', fontWeight: '400' }],
+                        'caption': ['14px', { lineHeight: '140%', letterSpacing: '0.1px', fontWeight: '400' }],
+                        'mono-num': ['20px', { lineHeight: '120%', letterSpacing: '0px', fontWeight: '700' }],
+                    },
+                    borderRadius: {
+                        'card': '16px',
+                        'button': '12px',
+                    },
+                    boxShadow: {
+                        'level-1': '0 2px 8px rgba(0,0,0,0.08)',
+                        'level-2': '0 4px 16px rgba(0,0,0,0.10)',
+                        'level-3': '0 8px 24px rgba(0,0,0,0.16)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Almarai', sans-serif;
+            background-color: #FFFFFF;
+            color: #121212;
+        }
+        
+        .btn-primary {
+            background-color: #FF8A00;
+            color: #FFFFFF;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: #FFB24D;
+            transform: scale(0.98);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #004B46;
+            border: 1px solid #004B46;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 194, 184, 0.08);
+        }
+        
+        .card {
+            background-color: #F5F5F5;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.24s ease-out;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .content h2 {
+            color: #121212;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 130%;
+            letter-spacing: -0.3px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content p {
+            color: #5F5F5F;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 16px;
+        }
+        
+        .content ul {
+            color: #5F5F5F;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        
+        .content li {
+            margin-bottom: 8px;
+        }
+        
+        .last-updated {
+            color: #5F5F5F;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 0.1px;
+            margin-bottom: 32px;
+        }
+        
+        .content strong {
+            color: #121212;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-neutral-0 text-neutral-90 font-almarai">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-neutral-0/95 backdrop-blur border-b border-neutral-80">
+        <div class="max-w-6xl mx-auto flex h-16 items-center px-l">
+            <div class="mr-l hidden md:flex">
+                <a class="mr-l flex items-center space-x-2" href="index.html">
+                    <span class="text-heading font-bold">how'dthatlook</span>
+                </a>
+                <nav class="flex items-center space-x-l text-body">
+                    <a href="index.html#about" class="text-neutral-70 hover:text-teal-dark transition-colors">About</a>
+                    <a href="index.html#features" class="text-neutral-70 hover:text-teal-dark transition-colors">Features</a>
+                    <a href="index.html#contact" class="text-neutral-70 hover:text-teal-dark transition-colors">Contact</a>
+                    <a href="terms.html" class="text-neutral-70 hover:text-teal-dark transition-colors">Terms</a>
+                    <a href="privacy.html" class="text-teal-dark font-medium">Privacy</a>
+                </nav>
+            </div>
+            <a href="index.html" class="btn-secondary ml-auto">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-l py-xxl">
+        <!-- Page Header -->
+        <div class="text-center space-y-m mb-xxl">
+            <h1 class="text-display text-neutral-90">Privacy Policy</h1>
+            <p class="last-updated">Last updated: May 11th, 2025</p>
+        </div>
+
+        <!-- Content Card -->
+        <div class="card p-l">
+            <div class="content">
+                <p>At Yay, a product of Killbridge Ventures Pte Ltd, we take your privacy seriously. This Privacy Policy describes how we collect, use, and share information about you when you use our service, including our website and mobile applications.</p>
+
+                <h2>1. Information We Collect</h2>
+                <p>We collect information in the following ways:</p>
+                <ul>
+                    <li><strong>Information you provide to us:</strong> We collect information that you provide directly to us, such as when you create an account, upload photos, or contact customer support.</li>
+                    <li><strong>Information we collect automatically:</strong> When you use our website or mobile applications, we automatically collect certain information about your device and how you interact with our service.</li>
+                    <li><strong>Mobile device information:</strong> When you use our mobile applications, we may collect additional information such as the type of mobile device you use, your device's unique identifier, and your mobile operating system.</li>
+                </ul>
+
+                <h2>1A. Face Data</h2>
+                <p>While our app allows users to upload and process photos that may contain faces for AI-based restyling, we do not collect, store, or process biometric data or face identification data. The images are processed for visual transformation only, and no facial recognition or biometric analysis is performed.</p>
+
+                <h2>2. How We Use Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide, maintain, and improve our service</li>
+                    <li>Process and complete transactions</li>
+                    <li>Send you technical notices and updates</li>
+                    <li>Respond to your comments and questions</li>
+                    <li>Develop new products and services</li>
+                </ul>
+
+                <h2>3. Information Sharing and Disclosure</h2>
+                <p>We may share information about you as follows:</p>
+                <ul>
+                    <li><strong>With third-party service providers:</strong> We may share information with vendors who help us provide our service.</li>
+                    <li><strong>For legal reasons:</strong> We may share information if we believe it's necessary to comply with applicable laws or legal processes.</li>
+                    <li><strong>Business transfers:</strong> If we are involved in a merger, acquisition, or asset sale, your information may be transferred as part of that transaction.</li>
+                </ul>
+
+                <h2>4. Data Retention</h2>
+                <p>We retain your information for as long as your account is active or as needed to provide you services. We will also retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements.</p>
+
+                <h2>5. Your Choices</h2>
+                <p>You can update, correct, or delete your information by accessing your account settings. You may also contact us directly to request access to your personal information.</p>
+
+                <h2>6. Security</h2>
+                <p>We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction.</p>
+
+                <h2>7. Changes to this Privacy Policy</h2>
+                <p>We may change this Privacy Policy from time to time. If we make changes, we will notify you by revising the date at the bottom of this policy.</p>
+
+                <h2>8. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact Killbridge Ventures Pte Ltd.</p>
+
+                <h2>9. Governing Law</h2>
+                <p>This Privacy Policy is governed by the laws of Singapore. Any disputes arising under this Privacy Policy will be subject to the exclusive jurisdiction of the courts in Singapore.</p>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-xxl">
+            <a href="index.html" class="btn-primary">Back to Home</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-80 bg-neutral-5">
+        <div class="max-w-6xl mx-auto flex flex-col gap-s sm:flex-row py-l items-center px-l">
+            <p class="text-caption text-neutral-70">
+                © 2024 how'dthatlook. Developed by 
+                <a href="https://www.milivon.com" target="_blank" class="text-teal-dark hover:text-teal-light transition-colors">MILIVON</a>. 
+                All rights reserved.
+            </p>
+            <nav class="sm:ml-auto flex gap-l">
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="terms.html">Terms of Service</a>
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dark mode toggle (following MILIVON design system)
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Load saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html> 

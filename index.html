@@ -6,110 +6,182 @@
     <title>how'dthatlook - AI Visualization App</title>
     <meta name="description" content="Visualize different hairstyles, clothes, furniture arrangements and more with our AI-powered app">
     
+    <!-- Almarai Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
-    <!-- Configure Tailwind -->
+    <!-- Configure Tailwind with MILIVON tokens -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        'almarai': ['Almarai', 'sans-serif'],
+                    },
                     colors: {
-                        border: "hsl(var(--border))",
-                        background: "hsl(var(--background))",
-                        foreground: "hsl(var(--foreground))",
-                        primary: "hsl(var(--primary))",
-                        muted: "hsl(var(--muted))",
-                        'muted-foreground': "hsl(var(--muted-foreground))",
+                        // Light mode
+                        'neutral-0': '#FFFFFF',
+                        'neutral-5': '#F5F5F5',
+                        'neutral-70': '#5F5F5F',
+                        'neutral-80': '#CCCCCC',
+                        'neutral-85': '#E6E6E6',
+                        'neutral-90': '#121212',
+                        'teal-light': '#00C2B8',
+                        'teal-dark': '#004B46',
+                        'orange-primary': '#FF8A00',
+                        'orange-light': '#FFB24D',
+                        'orange-selected': 'rgba(255,138,0,0.12)',
+                        'red-error': '#E02020',
+                        // Dark mode
+                        'neutral-d-0': '#FFFFFF',
+                        'neutral-d-60': '#8E8E93',
+                        'neutral-d-90': '#121212',
+                        'neutral-d-100': '#000000',
+                        'teal-light-d': '#00D6C7',
+                        'orange-primary-d': '#FF9500',
+                    },
+                    spacing: {
+                        'xs': '4px',
+                        's': '8px',
+                        'm': '16px',
+                        'l': '24px',
+                        'xl': '32px',
+                        'xxl': '40px',
+                    },
+                    fontSize: {
+                        'display': ['32px', { lineHeight: '120%', letterSpacing: '-0.5px', fontWeight: '700' }],
+                        'heading': ['24px', { lineHeight: '120%', letterSpacing: '-0.4px', fontWeight: '700' }],
+                        'subtitle': ['20px', { lineHeight: '130%', letterSpacing: '-0.3px', fontWeight: '600' }],
+                        'body': ['16px', { lineHeight: '140%', letterSpacing: '0px', fontWeight: '400' }],
+                        'caption': ['14px', { lineHeight: '140%', letterSpacing: '0.1px', fontWeight: '400' }],
+                        'mono-num': ['20px', { lineHeight: '120%', letterSpacing: '0px', fontWeight: '700' }],
+                    },
+                    borderRadius: {
+                        'card': '16px',
+                        'button': '12px',
+                    },
+                    boxShadow: {
+                        'level-1': '0 2px 8px rgba(0,0,0,0.08)',
+                        'level-2': '0 4px 16px rgba(0,0,0,0.10)',
+                        'level-3': '0 8px 24px rgba(0,0,0,0.16)',
                     }
                 }
             }
         }
     </script>
     
-    <!-- CSS Variables for theme -->
     <style>
-        :root {
-            --background: 0 0% 100%;
-            --foreground: 222.2 84% 4.9%;
-            --border: 214.3 31.8% 91.4%;
-            --primary: 222.2 47.4% 11.2%;
-            --muted: 210 40% 96%;
-            --muted-foreground: 215.4 16.3% 46.9%;
-        }
-        
-        .dark {
-            --background: 222.2 84% 4.9%;
-            --foreground: 210 40% 98%;
-            --border: 217.2 32.6% 17.5%;
-            --primary: 210 40% 98%;
-            --muted: 217.2 32.6% 17.5%;
-            --muted-foreground: 215 20.2% 65.1%;
-        }
-        
         body {
-            background-color: hsl(var(--background));
-            color: hsl(var(--foreground));
+            font-family: 'Almarai', sans-serif;
+            background-color: #FFFFFF;
+            color: #121212;
         }
         
-        /* Custom styles for better appearance */
-        .card {
-            background-color: hsl(var(--background));
-            border: 1px solid hsl(var(--border));
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        .dark body {
+            background-color: #000000;
+            color: #FFFFFF;
         }
         
+        /* Component styles following MILIVON design system */
         .btn-primary {
-            background-color: hsl(var(--primary));
-            color: hsl(var(--background));
-            border: 1px solid hsl(var(--primary));
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: all 0.2s;
+            background-color: #FF8A00;
+            color: #FFFFFF;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
         }
         
         .btn-primary:hover {
-            opacity: 0.9;
+            background-color: #FFB24D;
+            transform: scale(0.98);
         }
         
-        .btn-outline {
+        .btn-secondary {
             background-color: transparent;
-            color: hsl(var(--primary));
-            border: 1px solid hsl(var(--border));
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: all 0.2s;
+            color: #004B46;
+            border: 1px solid #004B46;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
         }
         
-        .btn-outline:hover {
-            background-color: hsl(var(--muted));
+        .btn-secondary:hover {
+            background-color: rgba(0, 194, 184, 0.08);
+        }
+        
+        .card {
+            background-color: #F5F5F5;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.24s ease-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
         }
         
         .input {
             width: 100%;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid hsl(var(--border));
-            border-radius: 0.375rem;
-            background-color: transparent;
-            color: hsl(var(--foreground));
+            padding: 16px;
+            border: 1px solid #CCCCCC;
+            border-radius: 12px;
+            background-color: #FFFFFF;
+            color: #121212;
+            font-size: 16px;
+            font-family: 'Almarai', sans-serif;
+            transition: border-color 0.18s ease-out;
         }
         
         .input:focus {
             outline: none;
-            border-color: hsl(var(--primary));
-            box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+            border-color: #00C2B8;
+            box-shadow: 0 0 0 2px rgba(0, 194, 184, 0.12);
         }
         
         .textarea {
             min-height: 80px;
             resize: vertical;
+        }
+        
+        .badge {
+            border-radius: 24px;
+            padding: 4px 12px;
+            font-size: 14px;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .badge-neutral {
+            background-color: #CCCCCC;
+            color: #121212;
+        }
+        
+        .badge-teal {
+            background-color: #00C2B8;
+            color: #FFFFFF;
+        }
+        
+        .badge-orange {
+            background-color: #FF8A00;
+            color: #FFFFFF;
         }
         
         /* Smooth scrolling */
@@ -131,107 +203,113 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Hero gradient overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+        }
     </style>
 </head>
-<body class="min-h-screen bg-background">
+<body class="bg-neutral-0 text-neutral-90 font-almarai">
     <!-- Header -->
-    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
-        <div class="container mx-auto flex h-14 items-center px-4 md:px-6">
-            <div class="mr-4 hidden md:flex">
-                <a class="mr-6 flex items-center space-x-2" href="#top">
-                    <span class="hidden font-bold sm:inline-block">how'dthatlook</span>
+    <header class="sticky top-0 z-50 w-full bg-neutral-0/95 backdrop-blur border-b border-neutral-80">
+        <div class="max-w-6xl mx-auto flex h-16 items-center px-l">
+            <div class="mr-l hidden md:flex">
+                <a class="mr-l flex items-center space-x-2" href="#top">
+                    <span class="text-heading font-bold">how'dthatlook</span>
                 </a>
-                <nav class="flex items-center space-x-6 text-sm font-medium">
-                    <a href="#about" class="transition-colors hover:text-foreground/80">About</a>
-                    <a href="#features" class="transition-colors hover:text-foreground/80">Features</a>
-                    <a href="#contact" class="transition-colors hover:text-foreground/80">Contact</a>
+                <nav class="flex items-center space-x-l text-body">
+                    <a href="#about" class="text-neutral-70 hover:text-teal-dark transition-colors">About</a>
+                    <a href="#features" class="text-neutral-70 hover:text-teal-dark transition-colors">Features</a>
+                    <a href="#contact" class="text-neutral-70 hover:text-teal-dark transition-colors">Contact</a>
                 </nav>
             </div>
-            <button class="btn-outline ml-auto">Try Now</button>
+            <button class="btn-primary ml-auto">Try Now</button>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 md:px-6">
+    <main class="max-w-6xl mx-auto">
         <!-- Hero Section -->
-        <section id="about" class="py-12 md:py-24 lg:py-32">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div class="space-y-2">
-                        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                            how'dthatlook
-                        </h1>
-                        <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                            Visualize your world differently. Try new hairstyles, clothes, furniture arrangements, and more with
-                            our AI-powered visualization tool.
-                        </p>
-                    </div>
-                    <div class="space-x-4 flex">
-                        <a href="https://instagram.com" target="_blank" class="btn-outline inline-flex items-center justify-center w-10 h-10">
-                            <i data-lucide="instagram" class="h-4 w-4"></i>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" class="btn-outline inline-flex items-center justify-center w-10 h-10">
-                            <i data-lucide="twitter" class="h-4 w-4"></i>
-                            <span class="sr-only">Twitter</span>
-                        </a>
-                        <a href="mailto:contact@howdthatlook.com" class="btn-outline inline-flex items-center justify-center w-10 h-10">
-                            <i data-lucide="mail" class="h-4 w-4"></i>
-                            <span class="sr-only">Email</span>
-                        </a>
-                    </div>
+        <section id="about" class="py-xxl px-l">
+            <div class="text-center space-y-xl">
+                <div class="space-y-m">
+                    <h1 class="text-display text-neutral-90">
+                        how'dthatlook
+                    </h1>
+                    <p class="text-body text-neutral-70 max-w-2xl mx-auto">
+                        Visualize your world differently. Try new hairstyles, clothes, furniture arrangements, and more with
+                        our AI-powered visualization tool.
+                    </p>
+                </div>
+                <div class="flex justify-center space-x-m">
+                    <a href="https://instagram.com" target="_blank" class="btn-secondary inline-flex items-center justify-center w-11 h-11">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="btn-secondary inline-flex items-center justify-center w-11 h-11">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                        <span class="sr-only">Twitter</span>
+                    </a>
+                    <a href="mailto:contact@howdthatlook.com" class="btn-secondary inline-flex items-center justify-center w-11 h-11">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                        <span class="sr-only">Email</span>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section id="features" class="py-12 md:py-24 lg:py-32">
-            <div class="container mx-auto px-4 md:px-6">
-                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Features</h2>
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <section id="features" class="py-xxl px-l">
+            <div class="space-y-xl">
+                <h2 class="text-display text-center text-neutral-90">Features</h2>
+                <div class="grid gap-l md:grid-cols-2 lg:grid-cols-3">
                     <!-- Feature Card 1 -->
-                    <div class="card overflow-hidden">
-                        <div class="relative aspect-video bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">Virtual Hairstyles</span>
+                    <div class="card">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
+                            <div class="hero-overlay absolute inset-0"></div>
+                            <span class="text-subtitle text-white relative z-10">Virtual Hairstyles</span>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-xl mb-2">Virtual Hairstyles</h3>
-                            <p class="text-sm text-muted-foreground mb-4">Try different hairstyles and colors without the commitment. See how you'd look with a new cut or color in seconds.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Hairstyles</span>
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Colors</span>
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Realistic</span>
+                        <div class="p-m space-y-m">
+                            <h3 class="text-subtitle text-neutral-90">Virtual Hairstyles</h3>
+                            <p class="text-body text-neutral-70">Try different hairstyles and colors without the commitment. See how you'd look with a new cut or color in seconds.</p>
+                            <div class="flex flex-wrap gap-xs">
+                                <span class="badge badge-neutral">Hairstyles</span>
+                                <span class="badge badge-neutral">Colors</span>
+                                <span class="badge badge-neutral">Realistic</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Feature Card 2 -->
-                    <div class="card overflow-hidden">
-                        <div class="relative aspect-video bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">Virtual Wardrobe</span>
+                    <div class="card">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
+                            <div class="hero-overlay absolute inset-0"></div>
+                            <span class="text-subtitle text-white relative z-10">Virtual Wardrobe</span>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-xl mb-2">Virtual Wardrobe</h3>
-                            <p class="text-sm text-muted-foreground mb-4">Try on clothes without changing. See how different outfits would look on you before making a purchase.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Fashion</span>
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Shopping</span>
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Styling</span>
+                        <div class="p-m space-y-m">
+                            <h3 class="text-subtitle text-neutral-90">Virtual Wardrobe</h3>
+                            <p class="text-body text-neutral-70">Try on clothes without changing. See how different outfits would look on you before making a purchase.</p>
+                            <div class="flex flex-wrap gap-xs">
+                                <span class="badge badge-neutral">Fashion</span>
+                                <span class="badge badge-neutral">Shopping</span>
+                                <span class="badge badge-neutral">Styling</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Feature Card 3 -->
-                    <div class="card overflow-hidden">
-                        <div class="relative aspect-video bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">Room Designer</span>
+                    <div class="card">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
+                            <div class="hero-overlay absolute inset-0"></div>
+                            <span class="text-subtitle text-white relative z-10">Room Designer</span>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-xl mb-2">Room Designer</h3>
-                            <p class="text-sm text-muted-foreground mb-4">Visualize furniture and decor in your space before buying. Arrange and rearrange to find the perfect setup.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Interior Design</span>
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Furniture</span>
-                                <span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Decor</span>
+                        <div class="p-m space-y-m">
+                            <h3 class="text-subtitle text-neutral-90">Room Designer</h3>
+                            <p class="text-body text-neutral-70">Visualize furniture and decor in your space before buying. Arrange and rearrange to find the perfect setup.</p>
+                            <div class="flex flex-wrap gap-xs">
+                                <span class="badge badge-neutral">Interior Design</span>
+                                <span class="badge badge-neutral">Furniture</span>
+                                <span class="badge badge-neutral">Decor</span>
                             </div>
                         </div>
                     </div>
@@ -240,59 +318,57 @@
         </section>
 
         <!-- Technology Section -->
-        <section class="py-12 md:py-24 lg:py-32">
-            <div class="container mx-auto px-4 md:px-6">
-                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">
-                    Our Technology
-                </h2>
-                <div class="grid gap-6 md:grid-cols-2">
+        <section class="py-xxl px-l">
+            <div class="space-y-xl">
+                <h2 class="text-display text-center text-neutral-90">Our Technology</h2>
+                <div class="grid gap-l md:grid-cols-2">
                     <!-- Tech Card 1 -->
-                    <div class="card p-6">
-                        <h3 class="text-lg font-semibold mb-4">AI & Machine Learning</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Computer Vision</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Image Generation</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Neural Networks</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Deep Learning</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Image Processing</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">3D Modeling</span>
+                    <div class="card p-m space-y-m">
+                        <h3 class="text-subtitle text-neutral-90">AI & Machine Learning</h3>
+                        <div class="flex flex-wrap gap-xs">
+                            <span class="badge badge-teal">Computer Vision</span>
+                            <span class="badge badge-teal">Image Generation</span>
+                            <span class="badge badge-teal">Neural Networks</span>
+                            <span class="badge badge-teal">Deep Learning</span>
+                            <span class="badge badge-teal">Image Processing</span>
+                            <span class="badge badge-teal">3D Modeling</span>
                         </div>
                     </div>
 
                     <!-- Tech Card 2 -->
-                    <div class="card p-6">
-                        <h3 class="text-lg font-semibold mb-4">User Experience</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Real-time Rendering</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">AR/VR Integration</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Mobile Optimization</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Intuitive Interface</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Fast Processing</span>
+                    <div class="card p-m space-y-m">
+                        <h3 class="text-subtitle text-neutral-90">User Experience</h3>
+                        <div class="flex flex-wrap gap-xs">
+                            <span class="badge badge-teal">Real-time Rendering</span>
+                            <span class="badge badge-teal">AR/VR Integration</span>
+                            <span class="badge badge-teal">Mobile Optimization</span>
+                            <span class="badge badge-teal">Intuitive Interface</span>
+                            <span class="badge badge-teal">Fast Processing</span>
                         </div>
                     </div>
 
                     <!-- Tech Card 3 -->
-                    <div class="card p-6">
-                        <h3 class="text-lg font-semibold mb-4">Security & Privacy</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Data Encryption</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Privacy Controls</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Secure Cloud Storage</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">GDPR Compliance</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">User Consent</span>
+                    <div class="card p-m space-y-m">
+                        <h3 class="text-subtitle text-neutral-90">Security & Privacy</h3>
+                        <div class="flex flex-wrap gap-xs">
+                            <span class="badge badge-teal">Data Encryption</span>
+                            <span class="badge badge-teal">Privacy Controls</span>
+                            <span class="badge badge-teal">Secure Cloud Storage</span>
+                            <span class="badge badge-teal">GDPR Compliance</span>
+                            <span class="badge badge-teal">User Consent</span>
                         </div>
                     </div>
 
                     <!-- Tech Card 4 -->
-                    <div class="card p-6">
-                        <h3 class="text-lg font-semibold mb-4">Platforms</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">iOS</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Android</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Web</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Desktop</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">AR Glasses</span>
-                            <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">Smart Mirrors</span>
+                    <div class="card p-m space-y-m">
+                        <h3 class="text-subtitle text-neutral-90">Platforms</h3>
+                        <div class="flex flex-wrap gap-xs">
+                            <span class="badge badge-teal">iOS</span>
+                            <span class="badge badge-teal">Android</span>
+                            <span class="badge badge-teal">Web</span>
+                            <span class="badge badge-teal">Desktop</span>
+                            <span class="badge badge-teal">AR Glasses</span>
+                            <span class="badge badge-teal">Smart Mirrors</span>
                         </div>
                     </div>
                 </div>
@@ -300,49 +376,45 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-12 md:py-24 lg:py-32">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="mx-auto max-w-2xl">
-                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">
-                        Get in Touch
-                    </h2>
-                    <div class="card p-6">
-                        <form id="contactForm" class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium mb-2">Name</label>
-                                <input type="text" id="name" name="name" required class="input">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                                <input type="email" id="email" name="email" required class="input">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" required class="input textarea"></textarea>
-                            </div>
-                            <button type="submit" id="submitBtn" class="btn-primary w-full flex items-center justify-center gap-2">
-                                <span id="submitText">Send Message</span>
-                                <div id="spinner" class="spinner hidden"></div>
-                            </button>
-                            <p id="formMessage" class="text-sm text-center mt-4 text-muted-foreground hidden"></p>
-                        </form>
-                    </div>
+        <section id="contact" class="py-xxl px-l">
+            <div class="max-w-2xl mx-auto space-y-xl">
+                <h2 class="text-display text-center text-neutral-90">Get in Touch</h2>
+                <div class="card p-l">
+                    <form id="contactForm" class="space-y-m">
+                        <div>
+                            <label for="name" class="block text-body font-medium mb-s text-neutral-90">Name</label>
+                            <input type="text" id="name" name="name" required class="input">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-body font-medium mb-s text-neutral-90">Email</label>
+                            <input type="email" id="email" name="email" required class="input">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-body font-medium mb-s text-neutral-90">Message</label>
+                            <textarea id="message" name="message" required class="input textarea"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn-primary w-full flex items-center justify-center gap-s">
+                            <span id="submitText">Send Message</span>
+                            <div id="spinner" class="spinner hidden"></div>
+                        </button>
+                        <p id="formMessage" class="text-caption text-center text-neutral-70 hidden"></p>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t">
-        <div class="container mx-auto flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6">
-            <p class="text-xs text-gray-500 dark:text-gray-400">
+    <footer class="border-t border-neutral-80 bg-neutral-5">
+        <div class="max-w-6xl mx-auto flex flex-col gap-s sm:flex-row py-l items-center px-l">
+            <p class="text-caption text-neutral-70">
                 © 2024 how'dthatlook. Developed by 
-                <a href="https://www.milivon.com" target="_blank" class="underline hover:text-primary">MILIVON</a>. 
+                <a href="https://www.milivon.com" target="_blank" class="text-teal-dark hover:text-teal-light transition-colors">MILIVON</a>. 
                 All rights reserved.
             </p>
-            <nav class="sm:ml-auto flex gap-4 sm:gap-6">
-                <a class="text-xs hover:underline underline-offset-4" href="#">Terms of Service</a>
-                <a class="text-xs hover:underline underline-offset-4" href="#">Privacy</a>
+            <nav class="sm:ml-auto flex gap-l">
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="terms.html">Terms of Service</a>
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="privacy.html">Privacy</a>
             </nav>
         </div>
     </footer>
@@ -375,20 +447,15 @@
             };
             
             try {
-                // Simulate form processing delay
+                // Simulate form processing delay (240ms following motion guidelines)
                 await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // For a real implementation, you would send the data to a service like:
-                // - Formspree: https://formspree.io/
-                // - EmailJS: https://www.emailjs.com/
-                // - Netlify Forms: https://docs.netlify.com/forms/setup/
                 
                 console.log('Form submission:', data);
                 
                 // Show success message
                 formMessage.textContent = "Thanks for your message! We'll get back to you soon.";
                 formMessage.classList.remove('hidden');
-                formMessage.className = formMessage.className.replace('text-red-500', 'text-green-500');
+                formMessage.style.color = '#00C2B8';
                 
                 // Reset form
                 e.target.reset();
@@ -397,7 +464,7 @@
                 // Show error message
                 formMessage.textContent = "Something went wrong. Please try again.";
                 formMessage.classList.remove('hidden');
-                formMessage.className = formMessage.className.replace('text-green-500', 'text-red-500');
+                formMessage.style.color = '#E02020';
             } finally {
                 // Reset button state
                 submitBtn.disabled = false;
@@ -406,7 +473,7 @@
             }
         });
 
-        // Dark mode toggle (optional)
+        // Dark mode toggle (following MILIVON design system)
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
