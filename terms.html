@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - how'dthatlook</title>
+    <meta name="description" content="Terms of Service for how'dthatlook AI visualization app">
+    
+    <!-- Almarai Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Configure Tailwind with MILIVON tokens -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'almarai': ['Almarai', 'sans-serif'],
+                    },
+                    colors: {
+                        // Light mode
+                        'neutral-0': '#FFFFFF',
+                        'neutral-5': '#F5F5F5',
+                        'neutral-70': '#5F5F5F',
+                        'neutral-80': '#CCCCCC',
+                        'neutral-85': '#E6E6E6',
+                        'neutral-90': '#121212',
+                        'teal-light': '#00C2B8',
+                        'teal-dark': '#004B46',
+                        'orange-primary': '#FF8A00',
+                        'orange-light': '#FFB24D',
+                        'orange-selected': 'rgba(255,138,0,0.12)',
+                        'red-error': '#E02020',
+                        // Dark mode
+                        'neutral-d-0': '#FFFFFF',
+                        'neutral-d-60': '#8E8E93',
+                        'neutral-d-90': '#121212',
+                        'neutral-d-100': '#000000',
+                        'teal-light-d': '#00D6C7',
+                        'orange-primary-d': '#FF9500',
+                    },
+                    spacing: {
+                        'xs': '4px',
+                        's': '8px',
+                        'm': '16px',
+                        'l': '24px',
+                        'xl': '32px',
+                        'xxl': '40px',
+                    },
+                    fontSize: {
+                        'display': ['32px', { lineHeight: '120%', letterSpacing: '-0.5px', fontWeight: '700' }],
+                        'heading': ['24px', { lineHeight: '120%', letterSpacing: '-0.4px', fontWeight: '700' }],
+                        'subtitle': ['20px', { lineHeight: '130%', letterSpacing: '-0.3px', fontWeight: '600' }],
+                        'body': ['16px', { lineHeight: '140%', letterSpacing: '0px', fontWeight: '400' }],
+                        'caption': ['14px', { lineHeight: '140%', letterSpacing: '0.1px', fontWeight: '400' }],
+                        'mono-num': ['20px', { lineHeight: '120%', letterSpacing: '0px', fontWeight: '700' }],
+                    },
+                    borderRadius: {
+                        'card': '16px',
+                        'button': '12px',
+                    },
+                    boxShadow: {
+                        'level-1': '0 2px 8px rgba(0,0,0,0.08)',
+                        'level-2': '0 4px 16px rgba(0,0,0,0.10)',
+                        'level-3': '0 8px 24px rgba(0,0,0,0.16)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Almarai', sans-serif;
+            background-color: #FFFFFF;
+            color: #121212;
+        }
+        
+        .dark body {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+        
+        /* Component styles following MILIVON design system */
+        .btn-primary {
+            background-color: #FF8A00;
+            color: #FFFFFF;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: #FFB24D;
+            transform: scale(0.98);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #004B46;
+            border: 1px solid #004B46;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 194, 184, 0.08);
+        }
+        
+        .card {
+            background-color: #F5F5F5;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.24s ease-out;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Content styling */
+        .content h2 {
+            color: #121212;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 130%;
+            letter-spacing: -0.3px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content p {
+            color: #5F5F5F;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 16px;
+        }
+        
+        .content ul {
+            color: #5F5F5F;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        
+        .content li {
+            margin-bottom: 8px;
+        }
+        
+        .content strong {
+            color: #121212;
+            font-weight: 600;
+        }
+        
+        .last-updated {
+            color: #5F5F5F;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 0.1px;
+            margin-bottom: 32px;
+        }
+    </style>
+</head>
+<body class="bg-neutral-0 text-neutral-90 font-almarai">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-neutral-0/95 backdrop-blur border-b border-neutral-80">
+        <div class="max-w-6xl mx-auto flex h-16 items-center px-l">
+            <div class="mr-l hidden md:flex">
+                <a class="mr-l flex items-center space-x-2" href="index.html">
+                    <span class="text-heading font-bold">how'dthatlook</span>
+                </a>
+                <nav class="flex items-center space-x-l text-body">
+                    <a href="index.html#about" class="text-neutral-70 hover:text-teal-dark transition-colors">About</a>
+                    <a href="index.html#features" class="text-neutral-70 hover:text-teal-dark transition-colors">Features</a>
+                    <a href="index.html#contact" class="text-neutral-70 hover:text-teal-dark transition-colors">Contact</a>
+                    <a href="terms.html" class="text-teal-dark font-medium">Terms</a>
+                </nav>
+            </div>
+            <a href="index.html" class="btn-secondary ml-auto">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-l py-xxl">
+        <!-- Page Header -->
+        <div class="text-center space-y-m mb-xxl">
+            <h1 class="text-display text-neutral-90">Terms of Service</h1>
+            <p class="last-updated">Last updated: May 13th, 2025</p>
+        </div>
+
+        <!-- Content Card -->
+        <div class="card p-l">
+            <div class="content">
+                <p>Welcome to Yay, a product of Killbridge Ventures Pte Ltd. By accessing or using our service, including our website and mobile applications, you agree to be bound by these Terms of Service.</p>
+
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing or using our service, including our website and mobile applications, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this service.</p>
+
+                <h2>2. Use License</h2>
+                <p>Permission is granted to temporarily use our service for personal, non-commercial purposes only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                <ul>
+                    <li>Modify or copy the materials</li>
+                    <li>Use the materials for any commercial purpose</li>
+                    <li>Attempt to decompile or reverse engineer any software contained in our service</li>
+                    <li>Remove any copyright or other proprietary notations from the materials</li>
+                </ul>
+
+                <h2>3. Disclaimer</h2>
+                <p>The materials on our service are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaims and negates all other warranties.</p>
+
+                <h2>4. Limitations</h2>
+                <p>In no event shall Yay, Killbridge Ventures Pte Ltd, or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use our service.</p>
+
+                <h2>5. Revisions and Errata</h2>
+                <p>The materials appearing on our service could include technical, typographical, or photographic errors. We do not warrant that any of the materials on our service are accurate, complete or current.</p>
+
+                <h2>6. Links</h2>
+                <p>We have not reviewed all of the sites linked to our service and are not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Yay.</p>
+
+                <h2>7. Site Terms of Use Modifications</h2>
+                <p>We may revise these terms of use at any time without notice. By using this service you are agreeing to be bound by the then current version of these Terms of Service.</p>
+
+                <h2>8. Governing Law</h2>
+                <p>These terms and conditions are governed by and construed in accordance with the laws of Singapore and you irrevocably submit to the exclusive jurisdiction of the courts in Singapore.</p>
+
+                <h2>9. Credits and Payments</h2>
+                <p>Yay uses a credit-based system ("Credits") to process images. We currently offer two ways to obtain Credits: (i) one-off purchases ("Top-Ups") and (ii) recurring subscriptions ("Subscriptions") that automatically add a set number of Credits to your account each billing cycle. We may introduce, modify, or discontinue Top-Ups, Subscriptions, or any other payment option at our sole discretion.</p>
+                
+                <p>Unused Credits added to your account via Top-Ups will automatically expire six (6) months after the date they are issued. Unused Credits issued through Subscriptions will expire at the end of the billing period in which they are granted unless we explicitly state that they roll over.</p>
+                
+                <p>In rare circumstances—such as a significant increase in the fees we are charged by third-party service providers—we may adjust the number of Credits required to process an image. We will endeavour to give reasonable advance notice and avoid sudden changes. Separately, we may introduce, modify, or retire filters, features, or other functionality and may require additional Credits or a different payment tier to access them. Your continued use of Yay after any such change constitutes acceptance of the updated Credit or payment requirements.</p>
+                
+                <p>Free or promotional Credits have no cash value and may be limited, revoked, or expire at any time without notice. Unused Credits will expire according to the timeframes described above and have no monetary value. Except where required by applicable law, all Credits (whether free, purchased, or subscription-based) are non-refundable and non-transferable.</p>
+                
+                <p>For purchases made through the Apple App Store, all billing and subscription management is handled by Apple. In such cases, Apple's terms of service and privacy policy will apply to the payment processing.</p>
+
+                <h2>10. Subscription Terms</h2>
+                <p>Subscriptions to Yay are processed through your Apple ID account. Payment will be charged to your Apple ID account at the confirmation of purchase.</p>
+                
+                <p>Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period at the rate of your selected plan.</p>
+                
+                <p>You can manage and cancel your subscriptions by going to your account settings in the App Store after purchase.</p>
+                
+                <p>We reserve the right to modify, terminate, or otherwise amend our offered subscription plans. If the price of a subscription changes, we will notify you before charging you the new price.</p>
+
+                <h2>11. AI Processing and Results</h2>
+                <p>Images are processed using machine-learning models. Because of the probabilistic nature of these technologies, results may vary from photo to photo and may differ each time you apply the same filter. The models we use are continually improved and may be updated, replaced, or removed without notice. Accordingly, we do not guarantee the accuracy, consistency, or quality of any output generated by Yay.</p>
+
+                <h2>12. Acceptable Use</h2>
+                <p>You may only upload and process photographs of (i) yourself or (ii) individuals for whom you have obtained all necessary permissions. You must not upload or process images of anyone under the age of eighteen (18). You also agree not to use the service to create, request, upload, or share content that is illegal, harassing, hateful, violent, pornographic, exploitative, or otherwise violates our content policies or any applicable law.</p>
+
+                <h2>13. Account Suspension and Termination</h2>
+                <p>We reserve the right to suspend or terminate your account, or to refuse or limit the service, at any time and for any reason, including but not limited to suspected abuse or violation of these Terms. Upon suspension or termination, any unused Credits will automatically expire, and you will not be entitled to any compensation or refund.</p>
+
+                <h2>14. Data Deletion</h2>
+                <p>You may delete your Yay account and associated personal data at any time from within the mobile application by navigating to Settings → Delete Account. Once we receive and verify your deletion request, we will permanently remove your personal data—including photos and generated images—from our active systems within 30 days, except where we are legally required to retain certain information. Deleted data cannot be recovered once the process is complete.</p>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-xxl">
+            <a href="index.html" class="btn-primary">Back to Home</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-80 bg-neutral-5">
+        <div class="max-w-6xl mx-auto flex flex-col gap-s sm:flex-row py-l items-center px-l">
+            <p class="text-caption text-neutral-70">
+                © 2024 how'dthatlook. Developed by 
+                <a href="https://www.milivon.com" target="_blank" class="text-teal-dark hover:text-teal-light transition-colors">MILIVON</a>. 
+                All rights reserved.
+            </p>
+            <nav class="sm:ml-auto flex gap-l">
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="terms.html">Terms of Service</a>
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="#">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dark mode toggle (following MILIVON design system)
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Load saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html> 
