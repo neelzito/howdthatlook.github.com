@@ -9,7 +9,7 @@ import {
 
 export function FAQSection() {
   return (
-    <section id="pricing" className="bg-accent/30 py-16 md:py-24">
+    <section id="faq" className="bg-accent/30 py-16 md:py-24">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -18,7 +18,7 @@ export function FAQSection() {
               Frequently asked questions
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Everything you need to know about antique identification.
+              Everything you need to know about <span className="text-foreground">How'd That </span><span className="text-milivon-orange">Look</span><span className="text-milivon-orange">?</span>
             </p>
           </div>
         </div>
@@ -26,42 +26,42 @@ export function FAQSection() {
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-left text-base font-medium">
-                How accurate is the antique identification?
+                How accurate are the visualization results?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                We uses advanced AI technology trained on millions of antique images to provide highly accurate identifications. For common antiques and well-known styles, the accuracy is typically 90%+. For rare or unusual items, we provide the closest matches and detailed information to help you narrow down the identification. Our system continuously improves as more users contribute to our database.
+                Our AI technology provides highly realistic visualizations with 95%+ accuracy for standard features like hairstyles and clothing. Results are based on millions of training images and advanced computer vision models that understand lighting, angles, and natural positioning.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger className="text-left text-base font-medium">
-                Can this antique identifier app determine the value of my antiques?
+                What can I create with how'dthatlook?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Yes, we provides estimated value ranges based on recent auction data, market trends, and comparable sales. However, these are approximations and many factors can affect an item's actual value, including condition, provenance, rarity, and regional market variations. For high-value items, we always recommend consulting with a professional appraiser.
+                Create professional LinkedIn headshots (18 styles), anime & creative art, restore old family photos, preview interior designs, enhance photos, remove objects, and generate videos. All powered by advanced AI models like FLUX and Stable Diffusion.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger className="text-left text-base font-medium">
-                What types of antiques can the app identify?
+                How much does it cost?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Our identifier app can identify a wide range of antiques and collectibles including furniture, ceramics, glassware, jewelry, silverware, artwork, clocks, watches, coins, stamps, toys, and many other categories. Our database includes items from various periods and styles, from ancient artifacts to mid-century modern pieces.
+                The app is free to download with 5 FREE credits included (worth $15). After that, you can purchase credits: 25 credits for €3.99, 100 credits for €17.99, or 500 credits for €79.99. No monthly subscriptions - pay only for what you use ($1-3 per image).
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
               <AccordionTrigger className="text-left text-base font-medium">
-                How do I take the best photo for identification?
+                How do I take the best photo for visualization?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                For best results, take photos in good natural lighting, against a plain background. Capture the entire item and include multiple angles if possible. For items with marks, signatures, or hallmarks, take close-up photos of these details as they can be crucial for accurate identification. Avoid shadows, glare, and blurry images.
+                For best results, use good lighting with minimal shadows. Face the camera directly for hairstyle/makeup changes, or capture your full room for furniture arrangements. Avoid extreme angles, poor lighting, or cluttered backgrounds that might confuse the AI.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">
               <AccordionTrigger className="text-left text-base font-medium">
-                Can I use this antique identifier app offline?
+                Can I save and share my results?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                The core identification feature requires an internet connection to access our AI and database. However, subscribers can save identified items to their collection for offline viewing.
+                Yes! You can save all visualizations to your device and share them with friends via social media, text, or email. You can also compare different options side-by-side before making decisions.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-6">
@@ -69,7 +69,7 @@ export function FAQSection() {
                 How is my data and privacy protected?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                We take your privacy seriously. Photos you upload are used only for identification purposes and to improve our AI system. You can choose whether to contribute your identified items to our database. All personal information is encrypted and never shared with third parties without your explicit consent. You can delete your account and data at any time.
+                Your privacy is our priority. Photos are processed securely and deleted immediately after visualization. We don't store your images or personal data. All processing happens with enterprise-grade encryption and security measures.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

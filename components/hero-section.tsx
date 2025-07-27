@@ -11,11 +11,13 @@ export function HeroSection() {
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
-              <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none text-primary">
-                Identify antiques with a simple photo
+              <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none">
+                <span className="text-foreground">How'd That </span>
+                <span className="text-milivon-orange">Look</span>
+                <span className="text-milivon-orange">?</span>
               </h1>
               <p className="max-w-[600px] text-muted-foreground text-sm sm:text-base md:text-xl">
-                Our antique identifier app uses advanced AI to help you identify, value, and learn about antiques and collectibles. Simply take a photo and discover the history behind your treasures.
+                Transform your photos with AI magic. Create professional headshots, anime art, restore old photos, and preview interior designs - all in under 5 minutes.
               </p>
             </div>
             <div className="flex flex-row flex-wrap gap-3">
@@ -29,24 +31,30 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm">
               <div className="flex items-center gap-1">
                 <div className="h-2 w-2 rounded-full bg-primary" />
-                <span>Free download</span>
+                <span>5 FREE credits ($15 value)</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="h-2 w-2 rounded-full bg-primary" />
-                <span>In-app purchases available</span>
+                <span>Results in under 5 minutes</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                <span>5⭐ rated</span>
               </div>
             </div>
           </div>
           <div className="relative mt-4 lg:mt-0 mx-auto lg:mx-0 max-w-[350px] lg:max-w-none">
             <div className="relative rounded-xl overflow-hidden">
-              <Image 
-                src="/antiqueidentifier_hero.png" 
-                alt="antique identifier app interface showing antique identification"
-                width={600}
-                height={400}
-                className="object-cover w-full h-auto"
-                priority
-              />
+              <div className="flex items-center justify-center h-96 bg-gradient-to-br from-orange-100 via-orange-50 to-cyan-50 rounded-xl">
+                <Image 
+                  src="/howdthatlook-icon-rounded.png" 
+                  alt="how'dthatlook app icon"
+                  width={200}
+                  height={200}
+                  className="drop-shadow-2xl"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>

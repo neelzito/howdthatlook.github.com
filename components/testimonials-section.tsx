@@ -13,10 +13,10 @@ export function TestimonialsSection() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">Testimonials</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-primary">
-              Loved by collectors and enthusiasts
+              Loved by style enthusiasts everywhere
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              See what our users are saying about their experience with Antique Identifier App.
+              See what our users are saying about their experience with <span className="text-foreground">How'd That </span><span className="text-milivon-orange">Look</span><span className="text-milivon-orange">?</span>
             </p>
           </div>
         </div>
@@ -33,12 +33,12 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-primary/90">Margaret T.</p>
-                  <p className="text-sm text-muted-foreground">Antique Dealer</p>
+                  <p className="font-semibold text-primary/90">Sarah J.</p>
+                  <p className="text-sm text-muted-foreground">Job Seeker</p>
                 </div>
               </div>
               <blockquote className="mt-4 border-l-2 border-primary/30 pl-4 italic text-muted-foreground">
-                "This antique identifer app has transformed how I evaluate new inventory. The app has helped me identify several rare pieces that I would have otherwise overlooked. The historical information is incredibly detailed and accurate."
+                "The LinkedIn headshot feature is incredible! I got my professional headshots done in under 5 minutes and they look better than expensive studio photos. Landed 3 interviews this week!"
               </blockquote>
             </CardContent>
           </Card>
@@ -54,12 +54,12 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-primary/90">Robert J.</p>
-                  <p className="text-sm text-muted-foreground">Collector</p>
+                  <p className="font-semibold text-primary/90">neelzito</p>
+                  <p className="text-sm text-muted-foreground">App Store Reviewer</p>
                 </div>
               </div>
               <blockquote className="mt-4 border-l-2 border-primary/30 pl-4 italic text-muted-foreground">
-                "As someone new to collecting antiques, this app has been invaluable. I've learned so much about different periods and styles. The value estimates have helped me avoid overpaying at estate sales and auctions."
+                "Amazing and fun for the whole family! We've been restoring old family photos and creating anime versions of ourselves. The AI is so impressive and results are professional quality."
               </blockquote>
             </CardContent>
           </Card>
@@ -75,12 +75,12 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-primary/90">Claire M.</p>
-                  <p className="text-sm text-muted-foreground">Interior Designer</p>
+                  <p className="font-semibold text-primary/90">David C.</p>
+                  <p className="text-sm text-muted-foreground">Creative Professional</p>
                 </div>
               </div>
               <blockquote className="mt-4 border-l-2 border-primary/30 pl-4 italic text-muted-foreground">
-                "This antique identifier app has become an essential tool in my design business. When sourcing vintage pieces for clients, I can quickly identify items and provide them with the fascinating history behind each piece, which they love."
+                "The anime art feature is addictive! I've created dozens of artistic versions of my photos. The quality is outstanding and my friends can't believe these are AI-generated. Worth every credit!"
               </blockquote>
             </CardContent>
           </Card>

@@ -1,4 +1,4 @@
-import { Camera, Search, Sparkles, Clock, Database, BookOpen } from "lucide-react"
+import { User, Palette, Home, Sparkles, Clock, Zap } from "lucide-react"
 
 import {
   Card,
@@ -16,67 +16,67 @@ export function FeaturesSection() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">Features</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-primary">
-              Everything you need to identify and learn about antiques
+              Transform your photos with AI magic
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Our AI-powered platform makes antique identification effortless, so you can focus on building your collection.
+              Professional results in under 5 minutes. From LinkedIn headshots to anime art - our AI does it all.
             </p>
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-2">
           <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-2">
-              <Camera className="h-6 w-6 text-primary mb-2" />
-              <CardTitle className="text-primary/90">Instant Identification</CardTitle>
+              <User className="h-6 w-6 text-primary mb-2" />
+              <CardTitle className="text-primary/90">LinkedIn Headshots</CardTitle>
               <CardDescription>
-                Identify antiques with just a photo.
+                18 professional styles for your career.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Our advanced AI can recognize thousands of antiques, from furniture and jewelry to art and collectibles.
+                Transform any selfie into a professional LinkedIn headshot. Perfect lighting, background, and styling automatically applied.
               </p>
             </CardContent>
           </Card>
           <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-2">
-              <Database className="h-6 w-6 text-primary mb-2" />
-              <CardTitle className="text-primary/90">Value Estimation</CardTitle>
+              <Palette className="h-6 w-6 text-primary mb-2" />
+              <CardTitle className="text-primary/90">Anime & Creative Art</CardTitle>
               <CardDescription>
-                Get approximate market values for your items.
+                Turn photos into stunning artwork.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Receive estimated price ranges based on recent auction data and market trends for similar items.
+                Create beautiful anime-style portraits and artistic transformations. Multiple creative styles including watercolor art.
               </p>
             </CardContent>
           </Card>
           <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-2">
               <Sparkles className="h-6 w-6 text-primary mb-2" />
-              <CardTitle className="text-primary/90">Historical Context</CardTitle>
+              <CardTitle className="text-primary/90">Photo Restoration</CardTitle>
               <CardDescription>
-                Learn the story behind your antiques.
+                Bring old photos back to life.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Discover the historical period, style, and cultural significance of your antiques with detailed information.
+                Restore damaged or faded family photos. Remove scratches, enhance colors, and preserve precious memories.
               </p>
             </CardContent>
           </Card>
           <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-2">
-              <Clock className="h-6 w-6 text-primary mb-2" />
-              <CardTitle className="text-primary/90">Collection Management</CardTitle>
+              <Home className="h-6 w-6 text-primary mb-2" />
+              <CardTitle className="text-primary/90">Interior Design Preview</CardTitle>
               <CardDescription>
-                Organize and track your antique collection.
+                See room designs before you buy.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Create a digital inventory of your antiques with photos, descriptions, and estimated values all in one place.
+                Preview how furniture and decor will look in your space. Make confident design decisions with AI visualization.
               </p>
             </CardContent>
           </Card>

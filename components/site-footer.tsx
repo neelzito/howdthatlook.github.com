@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { BookOpen } from "lucide-react"
 
 export function SiteFooter() {
@@ -8,10 +9,19 @@ export function SiteFooter() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="font-bold text-xl text-primary/90">Antique Identifier</span>
+              <Image
+                src="/howdthatlook-icon.png"
+                alt="how'dthatlook app icon"
+                width={28}
+                height={28}
+                className="rounded-lg"
+              />
+              <span className="font-bold text-xl text-primary/90">
+                How'd That <span className="text-milivon-orange">Look</span><span className="text-milivon-orange">?</span>
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Identify, value, and learn about antiques and collectibles with our AI-powered platform.
+              Visualize your world differently with our AI-powered visualization platform.
             </p>
           </div>
           <div className="space-y-4">
@@ -36,7 +46,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} AntiqueIdentifier.app . All rights reserved.</p>
+          <p>© {new Date().getFullYear()} How'd That Look?. Developed by <Link href="https://www.milivon.com" className="text-primary hover:underline">MILIVON</Link>. All rights reserved.</p>
         </div>
       </div>
     </footer>

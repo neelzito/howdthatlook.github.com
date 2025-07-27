@@ -74,6 +74,20 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        // MILIVON Brand Colors
+        'milivon': {
+          'orange': '#FF8A00',
+          'orange-light': '#FFB24D',
+          'orange-dark': '#FF9500',
+          'teal': '#00C2B8',
+          'teal-light': '#00D6C7',
+          'teal-dark': '#004B46',
+          'neutral-0': '#FFFFFF',
+          'neutral-5': '#F5F5F5',
+          'neutral-70': '#5F5F5F',
+          'neutral-80': '#CCCCCC',
+          'neutral-90': '#121212',
+        },
       },
       keyframes: {
         'accordion-down': {

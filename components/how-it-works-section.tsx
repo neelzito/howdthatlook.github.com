@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Camera, Database, BookOpen } from "lucide-react"
+import { Camera, Sparkles, Eye } from "lucide-react"
 
 export function HowItWorksSection() {
   return (
@@ -9,10 +9,10 @@ export function HowItWorksSection() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">How It Works</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-primary">
-              Identify antiques in three simple steps
+              Visualize anything in three simple steps
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Our intuitive process makes antique identification and learning effortless.
+              Our intuitive process makes visualization effortless and instant.
             </p>
           </div>
         </div>
@@ -23,7 +23,7 @@ export function HowItWorksSection() {
             </div>
             <h3 className="text-xl font-bold text-primary/90">1. Take a Photo</h3>
             <p className="text-muted-foreground">
-              Simply snap a picture of your antique using your smartphone camera or upload an existing photo from your gallery.
+              Snap a picture of yourself or your space using your smartphone camera or upload an existing photo.
             </p>
             <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
               <Image
@@ -37,11 +37,11 @@ export function HowItWorksSection() {
           </div>
           <div className="flex flex-col items-center space-y-4 rounded-lg border border-primary/20 bg-card p-6 text-center shadow-sm">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-              <Database className="h-8 w-8 text-primary" />
+              <Sparkles className="h-8 w-8 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-primary/90">2. Get Results</h3>
+            <h3 className="text-xl font-bold text-primary/90">2. Choose Changes</h3>
             <p className="text-muted-foreground">
-              Our AI analyzes your photo and provides identification, estimated age, potential value, and similar items from our database.
+              Select what you want to try - new hairstyles, clothes, furniture arrangements, or other modifications.
             </p>
             <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
               <Image
@@ -55,11 +55,11 @@ export function HowItWorksSection() {
           </div>
           <div className="flex flex-col items-center space-y-4 rounded-lg border border-primary/20 bg-card p-6 text-center shadow-sm">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-              <BookOpen className="h-8 w-8 text-primary" />
+              <Eye className="h-8 w-8 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-primary/90">3. Learn More</h3>
+            <h3 className="text-xl font-bold text-primary/90">3. See Results</h3>
             <p className="text-muted-foreground">
-              Explore detailed information about your antique's history, style, maker, and cultural significance to become a more informed collector.
+              Get instant AI-generated visualizations showing exactly how you'd look with the changes or how items would fit in your space.
             </p>
             <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
               <Image
