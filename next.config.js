@@ -1,15 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  skipTrailingSlashRedirect: true,
-  distDir: 'out',
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: { 
     unoptimized: true 
   },
+  generateBuildId: () => 'build',
 };
-
-module.exports = nextConfig;
