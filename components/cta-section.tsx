@@ -10,11 +10,10 @@ export function CTASection() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Start visualizing with <span className="text-primary-foreground">How'd That </span>
-              <span className="text-orange-200">Look</span><span className="text-orange-200">?</span> today
+              Ready to transform your photos?
             </h2>
             <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Join thousands of users who trust our app for trying new looks and making better style decisions.
+              Join over 10,000 users who trust our app for trying new looks and making better style decisions.
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">

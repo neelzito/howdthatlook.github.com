@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Policy - how'dthatlook</title>
+    <meta name="description" content="AI Content Generation Policy for how'dthatlook AI visualization app">
+    
+    <!-- Almarai Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Configure Tailwind with MILIVON tokens -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'almarai': ['Almarai', 'sans-serif'],
+                    },
+                    colors: {
+                        'neutral-0': '#FFFFFF',
+                        'neutral-5': '#F5F5F5',
+                        'neutral-70': '#5F5F5F',
+                        'neutral-80': '#CCCCCC',
+                        'neutral-85': '#E6E6E6',
+                        'neutral-90': '#121212',
+                        'teal-light': '#00C2B8',
+                        'teal-dark': '#004B46',
+                        'orange-primary': '#FF8A00',
+                        'orange-light': '#FFB24D',
+                        'orange-selected': 'rgba(255,138,0,0.12)',
+                        'red-error': '#E02020',
+                    },
+                    spacing: {
+                        'xs': '4px',
+                        's': '8px',
+                        'm': '16px',
+                        'l': '24px',
+                        'xl': '32px',
+                        'xxl': '40px',
+                    },
+                    fontSize: {
+                        'display': ['32px', { lineHeight: '120%', letterSpacing: '-0.5px', fontWeight: '700' }],
+                        'heading': ['24px', { lineHeight: '120%', letterSpacing: '-0.4px', fontWeight: '700' }],
+                        'subtitle': ['20px', { lineHeight: '130%', letterSpacing: '-0.3px', fontWeight: '600' }],
+                        'body': ['16px', { lineHeight: '140%', letterSpacing: '0px', fontWeight: '400' }],
+                        'caption': ['14px', { lineHeight: '140%', letterSpacing: '0.1px', fontWeight: '400' }],
+                        'mono-num': ['20px', { lineHeight: '120%', letterSpacing: '0px', fontWeight: '700' }],
+                    },
+                    borderRadius: {
+                        'card': '16px',
+                        'button': '12px',
+                    },
+                    boxShadow: {
+                        'level-1': '0 2px 8px rgba(0,0,0,0.08)',
+                        'level-2': '0 4px 16px rgba(0,0,0,0.10)',
+                        'level-3': '0 8px 24px rgba(0,0,0,0.16)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Almarai', sans-serif;
+            background-color: #FFFFFF;
+            color: #121212;
+        }
+        
+        .btn-primary {
+            background-color: #FF8A00;
+            color: #FFFFFF;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: #FFB24D;
+            transform: scale(0.98);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #004B46;
+            border: 1px solid #004B46;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.18s ease-out;
+            min-height: 44px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 194, 184, 0.08);
+        }
+        
+        .card {
+            background-color: #F5F5F5;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.24s ease-out;
+        }
+        
+        .warning-card {
+            background-color: #FFF3E0;
+            border-left: 4px solid #FF8A00;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .info-card {
+            background-color: #E0F7FA;
+            border-left: 4px solid #00C2B8;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .content h2 {
+            color: #121212;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 130%;
+            letter-spacing: -0.3px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content h3 {
+            color: #121212;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 130%;
+            letter-spacing: -0.2px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .content p {
+            color: #5F5F5F;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 16px;
+        }
+        
+        .content ul {
+            color: #5F5F5F;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        
+        .content li {
+            margin-bottom: 8px;
+        }
+        
+        .last-updated {
+            color: #5F5F5F;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 0.1px;
+            margin-bottom: 32px;
+        }
+        
+        .content strong {
+            color: #121212;
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 138, 0, 0.12);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-neutral-0 text-neutral-90 font-almarai">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-neutral-0/95 backdrop-blur border-b border-neutral-80">
+        <div class="max-w-6xl mx-auto flex h-16 items-center px-l">
+            <div class="mr-l hidden md:flex">
+                <a class="mr-l flex items-center space-x-2" href="index.html">
+                    <span class="text-heading font-bold">how'dthatlook</span>
+                </a>
+                <nav class="flex items-center space-x-l text-body">
+                    <a href="index.html#about" class="text-neutral-70 hover:text-teal-dark transition-colors">About</a>
+                    <a href="index.html#features" class="text-neutral-70 hover:text-teal-dark transition-colors">Features</a>
+                    <a href="index.html#contact" class="text-neutral-70 hover:text-teal-dark transition-colors">Contact</a>
+                    <a href="terms.html" class="text-neutral-70 hover:text-teal-dark transition-colors">Terms</a>
+                    <a href="privacy.html" class="text-neutral-70 hover:text-teal-dark transition-colors">Privacy</a>
+                    <a href="ai-policy.html" class="text-teal-dark font-medium">AI Policy</a>
+                </nav>
+            </div>
+            <a href="index.html" class="btn-secondary ml-auto">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-l py-xxl">
+        <!-- Page Header -->
+        <div class="text-center space-y-m mb-xxl">
+            <h1 class="text-display text-neutral-90">AI Content Policy</h1>
+            <p class="text-subtitle text-neutral-70">Understanding AI-Generated Content in how'dthatlook</p>
+            <p class="last-updated">Last updated: December 19th, 2024</p>
+        </div>
+
+        <!-- Important Notice -->
+        <div class="warning-card">
+            <div class="flex items-start space-x-4">
+                <i data-lucide="alert-triangle" class="text-orange-primary flex-shrink-0 mt-1"></i>
+                <div>
+                    <h3 class="text-subtitle text-neutral-90 mb-2">Important: AI-Generated Content</h3>
+                    <p class="text-body text-neutral-70 mb-0">All images created or modified by this app use artificial intelligence. Generated content should be clearly identified as AI-created when shared and should not be presented as authentic photographs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Card -->
+        <div class="card p-l">
+            <div class="content">
+                <h2>1. What is AI-Generated Content?</h2>
+                <p>HOWDTHATLOOK uses advanced artificial intelligence models to create and modify images. This means:</p>
+                <ul>
+                    <li><strong>Artificial Creation:</strong> All output images are generated or modified by computer algorithms, not captured by cameras</li>
+                    <li><strong>Based on Training Data:</strong> AI models are trained on large datasets of images to learn patterns and styles</li>
+                    <li><strong>Interpretation, Not Reality:</strong> Generated content represents an AI's interpretation of your request, not factual reality</li>
+                    <li><strong>Clearly Labeled:</strong> All AI-generated content in the app is marked with <span class="highlight">✨ AI-Generated</span> labels</li>
+                </ul>
+
+                <h2>2. How Our AI Works</h2>
+                <p>Understanding our AI features helps you use them responsibly:</p>
+                
+                <h3>Professional Headshots</h3>
+                <ul>
+                    <li>Transforms your photo into professional-style portrait</li>
+                    <li>Changes lighting, background, and styling</li>
+                    <li>Maintains facial features while enhancing presentation</li>
+                </ul>
+
+                <h3>Hairstyle & Outfit Changes</h3>
+                <ul>
+                    <li>Digitally applies different hairstyles or clothing</li>
+                    <li>Blends new elements with your original photo</li>
+                    <li>Results are artistic interpretations, not exact previews</li>
+                </ul>
+
+                <h3>Photo Restoration</h3>
+                <ul>
+                    <li>AI reconstructs missing or damaged parts of old photos</li>
+                    <li>Enhances quality and removes artifacts</li>
+                    <li>Restoration is an educated guess, not historical accuracy</li>
+                </ul>
+
+                <h3>Background & Object Changes</h3>
+                <ul>
+                    <li>Removes objects or changes backgrounds intelligently</li>
+                    <li>Fills in missing areas using AI prediction</li>
+                    <li>Creates seamless but artificial results</li>
+                </ul>
+
+                <h2>3. Responsible Use Guidelines</h2>
+                
+                <div class="info-card">
+                    <h3 class="text-subtitle text-neutral-90 mb-3">✅ Appropriate Uses</h3>
+                    <ul class="mb-0">
+                        <li>Personal experimentation with different looks</li>
+                        <li>Creative projects and artistic exploration</li>
+                        <li>Visualizing potential style changes</li>
+                        <li>Enhancing old family photos for personal use</li>
+                        <li>Creating fun, clearly-labeled AI content for social media</li>
+                    </ul>
+                </div>
+
+                <div class="warning-card">
+                    <h3 class="text-subtitle text-neutral-90 mb-3">❌ Prohibited Uses</h3>
+                    <ul class="mb-0">
+                        <li>Creating fake identification documents</li>
+                        <li>Generating misleading representations of real people without consent</li>
+                        <li>Creating content intended to deceive or manipulate others</li>
+                        <li>Producing inappropriate, illegal, or harmful content</li>
+                        <li>Processing images of people under 18 years old</li>
+                        <li>Violating others' privacy or likeness rights</li>
+                    </ul>
+                </div>
+
+                <h2>4. Understanding AI Limitations</h2>
+                <p>AI-generated content has inherent limitations:</p>
+                <ul>
+                    <li><strong>Accuracy:</strong> Results may not accurately represent how you would actually look</li>
+                    <li><strong>Bias:</strong> AI models may reflect biases present in their training data</li>
+                    <li><strong>Inconsistency:</strong> Similar inputs may produce different results</li>
+                    <li><strong>Quality Variation:</strong> Output quality depends on input image quality and complexity</li>
+                    <li><strong>Cultural Context:</strong> AI may not understand cultural or personal significance</li>
+                </ul>
+
+                <h2>5. Sharing AI-Generated Content</h2>
+                <p>When sharing content created with our app:</p>
+                <ul>
+                    <li><strong>Always Disclose:</strong> Clearly label content as AI-generated</li>
+                    <li><strong>Use Hashtags:</strong> Include #AIGenerated or #ArtificialIntelligence tags</li>
+                    <li><strong>Add Context:</strong> Explain that it's a digital creation, not a real photograph</li>
+                    <li><strong>Respect Platforms:</strong> Follow each social media platform's AI content policies</li>
+                    <li><strong>Consider Impact:</strong> Think about how others might interpret your shared content</li>
+                </ul>
+
+                <h2>6. Privacy and AI Processing</h2>
+                <p>Your privacy is protected during AI processing:</p>
+                <ul>
+                    <li><strong>Temporary Processing:</strong> Images are only temporarily sent to AI services for processing</li>
+                    <li><strong>No Storage:</strong> AI service providers do not permanently store your images</li>
+                    <li><strong>No Training Use:</strong> Your images are not used to train or improve AI models</li>
+                    <li><strong>Local Storage:</strong> Generated images are stored only on your device</li>
+                    <li><strong>Secure Transmission:</strong> All data is encrypted during transmission</li>
+                </ul>
+
+                <h2>7. Content Moderation</h2>
+                <p>We implement safeguards to prevent misuse:</p>
+                <ul>
+                    <li><strong>Content Filtering:</strong> AI services include filters to prevent inappropriate content</li>
+                    <li><strong>Usage Monitoring:</strong> We monitor for patterns of misuse</li>
+                    <li><strong>Reporting System:</strong> Users can report concerning generated content</li>
+                    <li><strong>Model Updates:</strong> We regularly update AI models to improve safety</li>
+                </ul>
+
+                <h2>8. Age and Consent Requirements</h2>
+                <div class="warning-card">
+                    <p><strong>Important Age Restrictions:</strong></p>
+                    <ul class="mb-0">
+                        <li>Do not upload images of anyone under 18 years old</li>
+                        <li>Obtain explicit consent before processing others' photos</li>
+                        <li>Parents should supervise children's use of AI features</li>
+                        <li>Consider the ethical implications of generating content of real people</li>
+                    </ul>
+                </div>
+
+                <h2>9. Commercial Use</h2>
+                <p>For commercial or professional use of AI-generated content:</p>
+                <ul>
+                    <li><strong>Licensing Required:</strong> Commercial use may require additional licensing</li>
+                    <li><strong>Legal Compliance:</strong> Ensure compliance with applicable advertising and media laws</li>
+                    <li><strong>Client Disclosure:</strong> Always disclose AI generation to clients or audiences</li>
+                    <li><strong>Professional Standards:</strong> Follow industry standards for AI-generated content</li>
+                </ul>
+
+                <h2>10. Reporting Misuse</h2>
+                <p>If you encounter inappropriate AI-generated content or have concerns about misuse:</p>
+                <ul>
+                    <li><strong>Contact Us:</strong> Report concerns to our support team immediately</li>
+                    <li><strong>Provide Details:</strong> Include specific information about the concerning content</li>
+                    <li><strong>Platform Reporting:</strong> Also report to relevant social media platforms</li>
+                    <li><strong>Legal Issues:</strong> Contact appropriate authorities for legal violations</li>
+                </ul>
+
+                <h2>11. Policy Updates</h2>
+                <p>This AI Content Policy may be updated as technology and regulations evolve. We will notify users of significant changes and update the "Last updated" date above.</p>
+
+                <h2>12. Educational Resources</h2>
+                <p>Learn more about AI and responsible use:</p>
+                <ul>
+                    <li><strong>AI Ethics:</strong> Understand the ethical implications of AI-generated content</li>
+                    <li><strong>Digital Literacy:</strong> Develop skills to identify AI-generated content</li>
+                    <li><strong>Legal Awareness:</strong> Stay informed about laws governing AI-generated content in your jurisdiction</li>
+                    <li><strong>Best Practices:</strong> Follow industry guidelines for AI content creation and sharing</li>
+                </ul>
+
+                <h2>13. Contact and Support</h2>
+                <p>For questions about AI content generation or this policy:</p>
+                <ul>
+                    <li><strong>Email:</strong> ai-support@milivon.com</li>
+                    <li><strong>General Support:</strong> support@milivon.com</li>
+                    <li><strong>Website:</strong> www.milivon.com</li>
+                    <li><strong>Legal Inquiries:</strong> legal@milivon.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-xxl">
+            <a href="index.html" class="btn-primary">Back to Home</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-80 bg-neutral-5">
+        <div class="max-w-6xl mx-auto flex flex-col gap-s sm:flex-row py-l items-center px-l">
+            <p class="text-caption text-neutral-70">
+                © 2024 how'dthatlook. Developed by 
+                <a href="https://www.milivon.com" target="_blank" class="text-teal-dark hover:text-teal-light transition-colors">MILIVON</a>. 
+                All rights reserved.
+            </p>
+            <nav class="sm:ml-auto flex gap-l">
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="terms.html">Terms of Service</a>
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="privacy.html">Privacy</a>
+                <a class="text-caption text-neutral-70 hover:text-teal-dark transition-colors" href="ai-policy.html">AI Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dark mode toggle (following MILIVON design system)
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Load saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ import { Camera, Sparkles, Eye } from "lucide-react"
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/30">
+    <section id="how-it-works" className="py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -27,8 +27,8 @@ export function HowItWorksSection() {
             </p>
             <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
               <Image
-                src="/taking-photo.png"
-                alt="Taking a photo of an antique"
+                src="/app-screenshot-upload.png"
+                alt="App screenshot showing photo upload interface"
                 width={300}
                 height={600}
                 className="w-full h-auto"
@@ -45,8 +45,8 @@ export function HowItWorksSection() {
             </p>
             <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
               <Image
-                src="/analyze.png"
-                alt="Analyzing antique photo"
+                src="/app-screenshot-options.png"
+                alt="App screenshot showing transformation options and style selection"
                 width={300}
                 height={600}
                 className="w-full h-auto"
@@ -63,8 +63,8 @@ export function HowItWorksSection() {
             </p>
             <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
               <Image
-                src="/result.png"
-                alt="Get antique identification result"
+                src="/app-screenshot-results.png"
+                alt="App screenshot showing AI transformation results"
                 width={300}
                 height={600}
                 className="w-full h-auto"

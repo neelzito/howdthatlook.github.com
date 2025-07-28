@@ -7,7 +7,7 @@ import {
 
 export function TestimonialsSection() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/30 to-background">
+    <section className="py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">

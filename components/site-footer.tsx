@@ -4,7 +4,7 @@ import { BookOpen } from "lucide-react"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t bg-accent/20">
+    <footer className="border-t bg-background">
       <div className="container px-4 py-12 md:px-6 md:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           <div className="space-y-4">
@@ -28,17 +28,17 @@ export function SiteFooter() {
             <h3 className="font-medium text-primary/90">Company</h3>
             <ul className="space-y-2 md:space-y-0 md:flex md:gap-6">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/privacy.html" className="text-muted-foreground hover:text-primary">
                   Privacy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/terms.html" className="text-muted-foreground hover:text-primary">
                   Terms
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="mailto:contact@howdthatlook.com" className="text-muted-foreground hover:text-primary">
                   Contact
                 </Link>
               </li>
